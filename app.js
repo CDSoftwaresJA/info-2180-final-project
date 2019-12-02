@@ -30,7 +30,8 @@ window.onload = function() {
     var issueTable = document.getElementById("issueTable");
     var myTicketBtn = document.getElementById("myTicketBtn");
     var emailID = document.getElementById("emailID");
-    modal.style.display = "block";
+    var issues = document.getElementsByClassName("issue_page");
+    //modal.style.display = "block";
     homeDiv.style.display = "block";
     addUserDiv.style.display = "none";
     addIssueDiv.style.display = "none";
@@ -40,7 +41,12 @@ window.onload = function() {
     openBtn.style.color = "black";
     myTicketBtn.style.backgroundColor = "transparent";
     myTicketBtn.style.color = "black";
-
+    
+    for (var i=0; i < issues.length ; i++){
+        issues[i].addEventListener("click",function(){
+            alert("Test");
+        });
+    }
     httpRequest.onreadystatechange = function() {
         if (httpRequest.readyState === 4 && httpRequest.status === 200) {
             var response = httpRequest.responseText;
