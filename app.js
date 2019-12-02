@@ -34,7 +34,12 @@ window.onload = function() {
     homeDiv.style.display = "block";
     addUserDiv.style.display = "none";
     addIssueDiv.style.display = "none";
-
+    allBtn.style.backgroundColor = "blue";
+    allBtn.style.color = "white";
+    openBtn.style.backgroundColor = "transparent";
+    openBtn.style.color = "black";
+    myTicketBtn.style.backgroundColor = "transparent";
+    myTicketBtn.style.color = "black";
 
     httpRequest.onreadystatechange = function() {
         if (httpRequest.readyState === 4 && httpRequest.status === 200) {
@@ -131,6 +136,17 @@ window.onload = function() {
         homeDiv.style.display = "none";
         addUserDiv.style.display = "none";
         addIssueDiv.style.display = "block";
+        httpRequest.onreadystatechange = function() {
+            if (httpRequest.readyState === 4 && httpRequest.status === 200) {
+                var response = httpRequest.responseText;
+                addIssueAssignedTo.innerHTML=response;
+
+            }
+        };
+        httpRequest.open('GET', url + "?userlist", true);
+        console.log(httpRequest);
+        httpRequest.send();
+
 
     });
 

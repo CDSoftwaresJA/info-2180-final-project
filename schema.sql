@@ -43,6 +43,7 @@ CREATE TABLE `issues` (
 
 LOCK TABLES `issues` WRITE;
 /*!40000 ALTER TABLE `issues` DISABLE KEYS */;
+INSERT INTO `issues` VALUES (164368276,'Test Issue','Test Description','Query','MEDIUM','OPEN','admin@bugme.com','cdsoftwaresja@gmail.com','2019/12/02','2019/12/02');
 /*!40000 ALTER TABLE `issues` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -70,7 +71,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1001,'Carl','Duncan','Carlduncan123','cdsoftwaresja@gmail.com','November 21,2019');
+INSERT INTO `users` VALUES (805286854,'','','$2y$10$ncEY/V/wlpSaFmFhxw6HEeapalwYkcN84O50gKXuE06C7J0VUR8GG','admin@bugme.com','2019/12/02'),(1677161722,'Carl','Duncan','$2y$10$IxBBaYeOzAGEgK52hvnGx.ScjSdf0dKHR8Q6VKhMYGyks5qRH8jzG','cdsoftwaresja@gmail.com','2019/12/02');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -83,4 +84,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-20 22:33:07
+-- Dump completed on 2019-12-02  3:11:07

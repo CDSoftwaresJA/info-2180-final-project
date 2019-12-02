@@ -65,8 +65,8 @@ th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: white;
   color: black;
+  background-color: gray;
 }
 
 input[type="submit"]{
@@ -92,5 +92,18 @@ input[type="text"],input[type="password"]{
 }
 
 strong{
-  color:gray;
+
+}
+
+#open{
+  background-color: green;
+  color: white;
+}
+#closed{
+  background-color: red;
+  color: white;
+}
+#inprogress{
+  background-color: yellow;
+  color: white;
 }

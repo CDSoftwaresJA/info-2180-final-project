@@ -10,6 +10,13 @@ $userslist = $users->fetchAll(PDO::FETCH_ASSOC);
 $issues = $conn->query("SELECT * FROM issues");
 $issueslist = $issues->fetchAll(PDO::FETCH_ASSOC);
 
+if (isset($_GET['userlist'])){
+    foreach ($userslist as $user):
+    $email=$user['email'];
+    
+    echo str_replace('#', '"',"<option value=#$email#>$email</option>");
+    endforeach;
+}
 
 # Login and set session variables
 if(isset($_GET['email']) && 
@@ -62,11 +69,19 @@ if(isset($_GET['display_issues'])){
         $assigned_to=$issue['assigned_to'];
         $created=$issue['created'];
         echo "<tr>";
-        echo "    <th>$id $title</th>";
-        echo "    <th>$type</th>";
-        echo "    <th>$status</th>";
-        echo "    <th>$assigned_to</th>";
-        echo "    <th>$created</th>";
+        echo "    <td><b>#$id</b> $title</td>";
+        echo "    <td>$type</td>";
+        if (strcmp($status,"OPEN")==0){
+        echo str_replace('#', '"',"    <td id=#open#>$status</th>");    
+        }elseif(strcmp($status,"CLOSED")==0){
+        echo str_replace('#', '"',"    <td id=#closed#>$status</th>");     
+        }elseif(strcmp($status,"IN PROGRESS")==0){
+        echo str_replace('#', '"',"    <td id=#inprogress#>$status</th>");     
+        }
+        
+        
+        echo "    <td>$assigned_to</td>";
+        echo "    <td>$created</td>";
         echo "  </tr>";
         
     endforeach;
@@ -92,11 +107,17 @@ if(isset($_GET['display_issues_open'])){
         $assigned_to=$issue['assigned_to'];
         $created=$issue['created'];
         echo "<tr>";
-        echo "    <th>$id $title</th>";
-        echo "    <th>$type</th>";
-        echo "    <th>$status</th>";
-        echo "    <th>$assigned_to</th>";
-        echo "    <th>$created</th>";
+        echo "    <td><b>#$id</b> $title</td>";
+        echo "    <td>$type</td>";
+        if (strcmp($status,"OPEN")==0){
+        echo str_replace('#', '"',"    <td id=#open#>$status</th>");    
+        }elseif(strcmp($status,"CLOSED")==0){
+        echo str_replace('#', '"',"    <td id=#closed#>$status</th>");     
+        }elseif(strcmp($status,"IN PROGRESS")==0){
+        echo str_replace('#', '"',"    <td id=#inprogress#>$status</th>");     
+        }
+        echo "    <td>$assigned_to</td>";
+        echo "    <td>$created</td>";
         echo "  </tr>";
         }
     endforeach;
@@ -122,11 +143,17 @@ if(isset($_GET['display_issues_tickets'])){
         $assigned_to=$issue['assigned_to'];
         $created=$issue['created'];
         echo "<tr>";
-        echo "    <th>$id $title</th>";
-        echo "    <th>$type</th>";
-        echo "    <th>$status</th>";
-        echo "    <th>$assigned_to</th>";
-        echo "    <th>$created</th>";
+        echo "    <td><b>#$id</b> $title</td>";
+        if (strcmp($status,"OPEN")==0){
+        echo str_replace('#', '"',"    <td id=#open#>$status</th>");    
+        }elseif(strcmp($status,"CLOSED")==0){
+        echo str_replace('#', '"',"    <td id=#closed#>$status</th>");     
+        }elseif(strcmp($status,"IN PROGRESS")==0){
+        echo str_replace('#', '"',"    <td id=#inprogress#>$status</th>");     
+        }
+        echo "    <td>$status</td>";
+        echo "    <td>$assigned_to</td>";
+        echo "    <td>$created</td>";
         echo "  </tr>";
         }
     endforeach;
